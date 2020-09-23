@@ -18,36 +18,6 @@ function randChar(passwordCharacters) {
     return passwordCharacters.charAt(Math.floor(Math.random() * passwordCharacters.length));
 }
 
-// function makePassword(userLength, passwordCharacters) { 
-//     var securePassword = "";
-//     for (i = 0; i < userLength; i++) {    
-//         securePassword += randChar(passwordCharacters);
-//     }
-//     return securePassword;
-// }
-
-// functions are like a recipe, validateOptions would be the dish's name, and the arguments the programmer passes are its ingredients. The computer is the chef but the programmer is the one responsible for getting all the ingredients and telling the chef what to make
-// function validateOptions(basePassword, askLowerCase, askUpperCase, askNumerals, askSpecial) {
-
-//     //  Creating a variable is like grabbing a bowl to mix or hold ingredients
-//     var securePassword = basePassword;
-
-//     // while (missing requirements) 
-//         // Validate that all selected characters have been included
-
-//         //  if securePassword does not contain lowercase, 
-//         //      then replace a random char in string with lowercase character
-//         //  if securePassword does not contain uppercase,
-//         //      then replace a random char in string with uppercase character
-//         //  if securePassword does not contain numbers,
-//         //      then replace a random char in string with numeral character
-//         //  if securePassword does not contain special characters,
-//         //      then replace a random char in string with a special character
-    
-//     // Using return is like serving the completed dish back to whoever ordered it
-//     return securePassword;
-// }
-
 function makeSecurePassword( userLength, askLowerCase, askUpperCase, askNumerals, askSpecial ) {
     const lowCaseArr = "abcdefghijklmnopqrstuvwxyz";
     const upCaseArr = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
