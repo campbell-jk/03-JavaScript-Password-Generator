@@ -1,4 +1,4 @@
-// Creating function that goes inside generatePassword to get a valid number between 8-128.
+// Function to prompt user to give a length, then validates that it is within the given range of lengths.
 function getLength() {
     while (true) {
         var userLength = parseInt(prompt("How many numbers, between 8 and 128, would you like to use? (Enter 0 to cancel)"));
@@ -13,43 +13,45 @@ function getLength() {
     } 
 }
 
-// Creating function that pulls random characters from the array passwordCharacters that is built later when asking user for options
-function randChar(passwordCharacters) {
+// Function to grab a random character from the array compiled by the user input
+function randomCharacter(passwordCharacters) {
     return passwordCharacters.charAt(Math.floor(Math.random() * passwordCharacters.length));
 }
 
-function makeSecurePassword( userLength, askLowerCase, askUpperCase, askNumerals, askSpecial ) {
+// Function to consider all password criteria and create the array of chosen criteria.
+function makeSecurePassword(userLength, askLowerCase, askUpperCase, askNumerals, askSpecial) {
+    // Storing all of the arrays
     const lowCaseArr = "abcdefghijklmnopqrstuvwxyz";
     const upCaseArr = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     const numeralArr = "1234567890";
     const specialArr = "!@#$%^&*";
-
+    // A blank array to add selected criteria
     var password = [];
 
-    // Decide which chars to consider:
+    // Decide which characters to consider:
     charArray = [];
-    if ( askLowerCase ) {
-        charArray.push( lowCaseArr );
+    if (askLowerCase) {
+        charArray.push(lowCaseArr);
     }
     if ( askUpperCase ) {
-        charArray.push( upCaseArr );
+        charArray.push(upCaseArr);
     }
-    if ( askNumerals ) {
-        charArray.push( numeralArr );
+    if (askNumerals) {
+        charArray.push(numeralArr);
     }
     if ( askSpecial ) {
-        charArray.push( specialArr );
+        charArray.push(specialArr);
     }
     
     let x = 0; // index into charArray
-    for ( var i=0; i < userLength; i++ ) {
+    for (var i=0; i < userLength; i++) {
         var a = charArray[x]; // Which array of chars to look at
 
         // Insert at random spot:       
-        password.splice( password.length, 1, randChar( a ) );
+        password.splice( password.length, 1, randomCharacter(a));
 
         // Pick next set of chars:
-        if ( ++x >= charArray.length ) {
+        if (++x >= charArray.length) {
             x = 0; // Start with the first set of chars if we went past the end
         }
     }
@@ -57,12 +59,15 @@ function makeSecurePassword( userLength, askLowerCase, askUpperCase, askNumerals
     return password.join(''); // Create a string from the array of random chars
 }
 
+// 
 function generatePassword() {
+    // Calls the getLength function to ask for a length
     var userLength = getLength();
     if (userLength == 0) {
         return "User Cancelled Request";
     }
 
+    // Asks a series of Boolean statements to see which arrays to include
     var askLowerCase = confirm("Would you like to include lower case characters? (a, b, c)");
     if (askLowerCase !== true) {
         alert("Got it. No lower case characters will be included.");
