@@ -2,6 +2,8 @@
 
 ## Welcome to my Password Generator project!
 
+[Click here to view on GitHub Pages](https://campbell-jk.github.io/03-JavaScript-Password-Generator/)
+
 ### For this project, we were asked to create a set of functions to randomly generate a secure password with the user's selection of length and characters.
 
 ### This week, we definitely saw the jump in difficulty the teachers had warned us were coming. Throughout programming this application, I would end up deleting whole sections of code and rewriting them as I tried to figure out the best approach for the features I was trying to apply.
